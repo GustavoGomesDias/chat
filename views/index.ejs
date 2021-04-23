@@ -16,7 +16,7 @@
     <input type="text" id="msg">
     <br>
     <input type="text" placeholder="Nome de Usuário" id="username">
-    <button>Eniar</button>
+    <button onclick="send()">Eniar</button>
 </body>
 
 <!-- lib do socket.io no front end -->
@@ -30,6 +30,16 @@
     socket.on("disconnect", () => {
         console.log("Desconectado!");
     });
+
+    function send(){
+        const msgField = document.querySelector('#msg');
+        const usernameField = document.querySelector('#username');
+    
+        const msg = msgField.value;
+        const username = username.value;
+
+        socket.emit("msg", { msg: msg, username: username });
+    }
 
 </script>
 
