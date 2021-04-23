@@ -11,7 +11,10 @@ io.on("connection", socket => {
     });
     
     socket.on("msg", data => {
-        socket.emit("showMsg", data);
+        // Socket é o usuário, io é o servidor inteiro
+
+        // sokcet.broadcast.emit("showMsg", data) => faz quase a mesma coisa que io.emit, mas não exibe a mensagem pra quem enviou ela
+        io.emit("showMsg", data);
         console.log(data);
     })
 });
