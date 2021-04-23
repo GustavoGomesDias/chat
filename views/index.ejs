@@ -36,7 +36,7 @@
         const usernameField = document.querySelector('#username');
     
         const msg = msgField.value;
-        const username = username.value;
+        const username = usernameField.value;
 
         socket.emit("msg", { msg: msg, username: username });
     }
