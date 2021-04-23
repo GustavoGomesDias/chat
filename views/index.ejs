@@ -31,6 +31,15 @@
         console.log("Desconectado!");
     });
 
+    socket.on("showMsg", data => {
+        const chat = document.querySelector("#chat");
+
+        const p = document.createElement("p");
+
+        p.innerHTML = `${data.username}: ${data.msg}`;
+        chat.append(p);
+    });
+
     function send(){
         const msgField = document.querySelector('#msg');
         const usernameField = document.querySelector('#username');
